@@ -1,0 +1,113 @@
+<script type="text/javascript">
+	var d = document.getElementById("issue");
+	d.className = d.className + " active";
+</script>
+<div class="grid-body no-border">
+  <h3>Issues  <span class="semi-bold">Reported</span></h3>
+  <table class="table no-more-tables" style= "background:white;">
+    <thead>
+        <tr>
+          <th>URL</th>
+	        <th>Email</th>
+	      	<th>Description</th>
+	      	<th>Reported At</th>
+	      	<th>Status</th>
+	      	<th colspan="5" style="text-align:center;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<% @issues.each do |userA| %>
+		    <tr>
+		      <td>
+		      	<%= userA.try(:url) %>
+		      </td>
+		      <td>
+		      	<%= userA.try(:email) %>
+		      </td>
+		      <td>
+		      	<%= userA.try(:content) %>
+		      </td>
+		      <td>
+		      	<%= userA.created_at.to_s %>
+		      </td>
+		      <td>
+		      	<%= userA.try(:status) %>
+		      </td>
+		      
+		      <td>
+		      	<%= link_to 'Accept', '', :class => 'btn btn-mini btn-primary', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		      </td>
+		       <td>
+		      	<%= link_to 'Reject', '', :class => 'btn btn-mini btn-info', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		      </td>
+		       <td>
+		      	<%= link_to 'Assign', '', :class => 'btn btn-mini btn-success', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		      </td>
+		       <td>
+		      	<%= link_to 'Delete', '', :class => 'btn btn-mini btn-danger', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		      </td>
+		    </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<!-- ////////////////////////////////////////////old//////////////////////////////////
+<h1>Issues</h1>
+<br/><br>
+	<table class="table table-striped" style=" width: 900px;">
+		<thead style="background:#666; color:white;">
+		    <tr>
+		      	<th>url</th>
+		        <th>Email</th>
+		      	<th>Description</th>
+		      	<th>Reported At</th>
+		      	<th>Status</th>
+		      	<th colspan="5" style="text-align:center;">Action</th>
+		    </tr>
+		</thead>
+		
+		<tbody>
+		    <%# @issues.each do |userA| %>
+		      <tr>
+		        <td>
+		        	<%#= userA.try(:url) %>
+		        </td>
+		        <td>
+		        	<%#= userA.try(:email) %>
+		        </td>
+		        <td>
+		        	<%#= userA.try(:content) %>
+		        </td>
+		        <td>
+		        	<%#= userA.created_at.to_s %>
+		        </td>
+		        <td>
+		        	<%#= userA.try(:status) %>
+		        </td>
+		        
+		        <td>
+		        	<%#= link_to 'Accept', '', :class => 'btn btn-mini btn-primary', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		        </td>
+		         <td>
+		        	<%#= link_to 'Reject', '', :class => 'btn btn-mini btn-info', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		        </td>
+		         <td>
+		        	<%#= link_to 'Assign', '', :class => 'btn btn-mini btn-success', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		        </td>
+		         <td>
+		        	<%#= link_to 'Delete', '', :class => 'btn btn-mini btn-danger', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		        </td>
+		     
+		        <td>
+		        	<%# if userA.confirmed_at.present? %>
+		        		<%#= link_to 'SU',"/switch_user?scope_identifier=user_#{userA.random_key}", :title => "Switch to #{userA.try(:uname)} account", :class => 'btn btn-mini', :style => 'font-size:8.6px;margin-right:-25px;background-color:black;color:white' %>
+		        	<%# else %>
+		        	<%#= link_to 'SU',"javascript:void(0);", :title => "User not confirmed yet...", :class => 'btn btn-mini', :style => 'font-size:8.6px;margin-right:-25px;background-color:#9C9C9C;color:white' %>
+		        	<%# end %>
+		        </td>
+		        
+		      </tr>
+		    <%# end %>
+		  </tbody>
+	</table> -->
+<!-- /////////////////////////////////////old/////////////////////////////////////////////////////////// -->
