@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'standrds/index'
+
+  get 'standrds/new'
+
+  get 'stds/index'
+
+  get 'stds/new'
+
+  get 'students/new'
+
+  get 'students/index'
+
   get 'issues/new'
 
   get 'issues/index'
@@ -23,6 +35,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :issues
+  resources :stds
   get 'switch_user' => 'switch_user#set_current_user'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

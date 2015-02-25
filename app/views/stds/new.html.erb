@@ -1,0 +1,50 @@
+<script type="text/javascript">
+  var d = document.getElementById("join");
+  d.className = d.className + " active";
+</script>
+
+<div class="container">  
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h1 class="text-center login-title">Sign Up</h1>
+      <div class="account-wall">
+        <%= form_for @student do |f| %>
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true ,class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :father_name %>
+            <%= f.text_field :sirname,class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :class %>
+            <%= f.text_field :classes ,type: 'number',class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :date_of_birth %>
+            <%= f.text_field :dob ,class: "form-control" %>
+          </div>
+          
+          <div class="field">
+            <%= f.label :gender %>
+            <%= f.text_field :gender ,class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :contact %>
+            <%= f.text_field :contact ,class: "form-control" %>
+          </div>
+
+          <br>
+          <div class="actions">
+            <%= f.submit "Add Student", class: "btn btn-block btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

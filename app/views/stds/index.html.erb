@@ -1,0 +1,49 @@
+
+<script type="text/javascript">
+	var d = document.getElementById("student");
+	d.className = d.className + " active";
+</script>
+
+<h1>Users</h1>
+<br/><br/>
+	<table class="table table-striped" style=" width: 900px;">
+		<thead style="background:#666; color:white;">
+		    <tr>
+		      	<th>Name</th>
+		        <th>Email</th>
+		        <th>Father Name</th>
+		        <th>Class</th>
+		      	<th colspan="3" style="text-align:center;">Action</th>
+		    </tr>
+		</thead>
+		
+		<tbody>
+		    <% @students.each do |userA| %>
+		      <tr>
+		        <td>
+		        	<%= link_to "#{userA.try(:name)}", std_path(userA) %>
+		        </td>
+		        <td>
+		        	<%= userA.try(:email) %>
+		        </td>
+		        <td>
+		        	<%= userA.sirname %>
+		        </td>
+		        <td>
+		        	<%= userA.classes %>
+		        </td>
+		        <td>
+		        	<%= link_to 'Delete', '/stds/'+userA.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete #{userA.try(:name)} account", :class => 'btn btn-mini btn-danger', :style => 'font-size:8.6px;margin-right:-25px;' %>
+		        </td>
+		        <td>
+		        	<%# if userA.confirmed_at.present? %>
+		        		<%#= link_to 'SU',"/switch_user?scope_identifier=user_#{userA.random_key}", :title => "Switch to #{userA.try(:uname)} account", :class => 'btn btn-mini', :style => 'font-size:8.6px;margin-right:-25px;background-color:black;color:white' %>
+		        	<%# else %>
+		        	<%#= link_to 'SU',"javascript:void(0);", :title => "User not confirmed yet...", :class => 'btn btn-mini', :style => 'font-size:8.6px;margin-right:-25px;background-color:#9C9C9C;color:white' %>
+		        	<%# end %>
+		        </td>
+		        
+		      </tr>
+		    <% end %>
+		  </tbody>
+	</table>
